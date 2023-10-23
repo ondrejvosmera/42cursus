@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:13:10 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/20 12:25:03 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:19:14 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,18 @@ void	*ft_memset(void *s, int value, size_t n)
 	}
 	return (s);
 }
+
+/*
+#include <stdio.h>
+
+int main()
+{
+    char str[13] = "Hello, World!";
+
+    printf("Before memset: %s\n", str);
+    ft_memset(str, 42, 5);
+    printf("After memset: %s\n", str);
+
+    return 0;
+}
+ */

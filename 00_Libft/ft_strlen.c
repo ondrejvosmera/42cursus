@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:05:31 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/20 13:55:24 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:47:27 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include "libft.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	int	count;
 
@@ -29,3 +29,16 @@ size_t	ft_strlen(char *str)
 	}
 	return (count);
 }
+
+/*
+#include <stdio.h>
+
+int main()
+{
+	char str[] = "Hello, World!";
+	int length = ft_strlen(str);
+	printf("String: %s\n", str);
+	printf("Length of the string is: %d\n", length);
+	return 0;
+}
+ */

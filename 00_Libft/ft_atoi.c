@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 11:49:31 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/20 12:23:34 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/23 13:59:02 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,19 @@ int	ft_atoi(char *str)
 	}
 	return (sign * result);
 }
+
+/*
+#include <stdio.h>
+
+int main()
+{
+    char str[] = " +-42 ";
+
+    int num = ft_atoi(str);
+
+    printf("String: %s\n", str);
+	printf("After atoi: %d\n", num);
+
+    return 0;
+}
+*/

@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:01:02 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/20 12:23:43 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/23 14:07:09 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,23 @@ int	ft_isalnum(int c)
 	}
 	return (0);
 }
+
+/*
+#include <stdio.h>
+int main()
+{
+	int test[] = {'a', 'Z', '3', '!', ' '};
+
+	int i = 0;
+	while (i < 5)
+	{
+		if (ft_isalnum(test[i]))
+		{
+			printf("%c is an alphanumeric character\n", test[i]);
+		} else {
+			printf("%c is NOT an alphanumeric character\n", test[i]);
+		}
+		i++;
+	}
+}
+*/

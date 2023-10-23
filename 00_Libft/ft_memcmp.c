@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 11:17:22 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/20 12:24:50 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:20:02 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,30 @@ int	ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
 	}
 	return (0);
 }
+
+
+/*
+#include <stdio.h>
+int main()
+{
+	char str1[] = "Hello, World!";
+	char str2[] = "Hello, Wo";
+	size_t n = 5;
+
+	printf("String1: %s\n", str1);
+	printf("String2: %s\n", str2);
+	printf("--------------------------\n");
+	printf("Compare %zu characters\n", n);
+
+	int result = ft_memcmp(str1, str2, n);
+	if (result == 0)
+	{
+		printf("Given strings are the same\n");
+	} else if (result < 0) {
+		printf("String1 is less than String2\n");
+	} else {
+		printf("String1 is greater than String2\n");
+	}
+	return 0;
+}
+ */

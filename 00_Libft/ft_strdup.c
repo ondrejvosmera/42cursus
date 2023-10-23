@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 13:48:28 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/20 13:52:32 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:24:43 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strcpy(char *dest, const char *src)
 {
 	int	i;
 
@@ -43,3 +43,24 @@ char	*ft_strdup(const char *src)
 	ft_strcpy(dest, src);
 	return (dest);
 }
+
+/*
+#include <stdio.h>
+
+int main() {
+    const char* src = "Hello, World!";
+
+    char* result = ft_strdup(src);
+
+	printf("Original string: %s\n", src);
+
+    if (result != NULL) {
+        printf("Duplicated string: %s\n", result);
+        free(result);
+    } else {
+        printf("Error in duplicating the string.\n");
+    }
+
+    return 0;
+}
+ */

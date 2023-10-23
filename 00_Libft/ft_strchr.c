@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 14:09:33 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/20 12:25:08 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:19:05 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,22 @@ char	*ft_strchr(const char *str, int c)
 	}
 	return (NULL);
 }
+
+/*
+#include <stdio.h>
+int main()
+{
+	char str[] = "Hello, World!";
+	char c = 'l';
+	size_t n = sizeof(str);
+
+	void *result = ft_strchr(str, c);
+	if (result != NULL)
+	{
+		printf("%c found at position %ld\n", c, (char *)result - str);
+	} else {
+		printf("%c not found in the string\n", c);
+	}
+	return 0;
+}
+ */

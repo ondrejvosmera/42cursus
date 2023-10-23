@@ -34,9 +34,11 @@ $(NAME):	${OBJS}
 
 all:		$(NAME)
 
-clean:		$(NAME) $(OBJS)
+clean:		$(RM) $(OBJS)
 
 fcelan:		clean
 			$(RM) $(NAME)
 
 re:			fclean all
+
+.PHONY: all clean fclean re

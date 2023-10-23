@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:58:08 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/20 12:27:45 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/23 16:05:58 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,23 @@
 
 int	ft_tolower(int c)
 {
-	if (c >= 65 && c <= 90)
+	if (c >= 'A' && c <= 'Z')
 	{
-		return (c + 32);
+		c = c + 32;
 	}
 	return (c);
 }
+
+/*
+#include <stdio.h>
+
+int main()
+{
+	char c = 'A';
+	printf("Original char: %c\n", c);
+
+	c = ft_tolower(c);
+	printf("Transformed char: %c\n", c);
+	return 0;
+}
+ */

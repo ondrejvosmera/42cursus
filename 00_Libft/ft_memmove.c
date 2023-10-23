@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:12:34 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/22 16:17:01 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:19:19 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,3 +44,19 @@ void	*ft_memmove(void *destination, const void *source, size_t n)
 	}
 	return (destination);
 }
+
+/*
+#include <stdio.h>
+int main()
+{
+	char src[] = "Hello, World!";
+	char dst[20];
+	size_t n = 13;
+
+	printf("Original string: %s\n", src);
+
+	void *result = (char*)ft_memmove(dst, src, n);
+	printf("Moved string: %s\n", dst);
+	return 0;
+}
+ */

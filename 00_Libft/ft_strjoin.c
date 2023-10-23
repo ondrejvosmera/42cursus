@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 15:36:52 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/22 17:07:09 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:28:32 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strcpy(char *dest, const char *src)
 {
 	int	i;
 
@@ -32,7 +32,7 @@ char	*ft_strcpy(char *dest, char *src)
 	return (dest);
 }
 
-char	*ft_strcat(char *dest, char *src)
+char	*ft_strcat(char *dest, const char *src)
 {
 	int	i;
 	int	j;
@@ -67,15 +67,21 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (final);
 }
 
-/* int main()
+/*
+#include <stdio.h>
+
+int main()
 {
 	char s1[] = "Hello, ";
     char s2[] = "World!";
     char *joined = ft_strjoin(s1, s2);
+	printf("String1: %s\n", s1);
+	printf("String2: %s\n", s2);
     if (joined) {
         printf("Final string: %s\n", joined);
         free(joined);
     } else {
         printf("Memory allocation failed.\n");
     }
-} */
+}
+*/
