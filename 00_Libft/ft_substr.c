@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 15:01:03 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/22 15:43:06 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/25 12:28:06 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,28 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	dst[i] = '\0';
 	return (dst);
 }
+
+/*
+#include <stdio.h>
+
+int main()
+{
+	const char s[] = "Hello, World!";
+	int start = 1;
+	int len = 9;
+
+	printf("String: %s\n", s);
+	printf("Start: %d\n", start);
+	printf("Length: %d\n", len);
+
+	char *result = ft_substr(s, start, len);
+	if (result != NULL)
+	{
+		printf("Substring: %s\n", result);
+	} else {
+		printf("Allocation failed.\n");
+	}
+
+	return 0;
+}
+ */

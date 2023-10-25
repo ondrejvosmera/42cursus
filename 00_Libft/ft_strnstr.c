@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 11:28:15 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/23 15:55:24 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/25 12:09:54 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 #include "libft.h"
 
-char	*strnstr(const char *haystack, const char *needle, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
 	size_t	count;
 	int		i;
@@ -28,37 +28,34 @@ char	*strnstr(const char *haystack, const char *needle, size_t n)
 	i = 0;
 	if (*needle == '\0')
 		return ((char *)haystack);
-	while (count < n)
+	while (haystack[i] != '\0' && count < n)
 	{
-		while (haystack[i] != '\0')
+		j = 0;
+		while (needle[j] != '\0' && haystack[i + j] == needle[j])
 		{
-			j = 0;
-			while (needle[j] != '\0' && haystack[i + j] == needle[j])
-			{
-				j++;
-			}
-			if (needle[j] == '\0')
-				return ((char *)&haystack[i]);
-			i++;
+			j++;
 		}
+		if (needle[j] == '\0')
+			return ((char *)&haystack[i]);
+		i++;
 		count++;
 	}
 	return (NULL);
 }
 
-
+/*
 #include <stdio.h>
 
 int main()
 {
 	const char haystack[] = "Hello, World!";
-	const char needle[] = "Hell";
-	size_t n = sizeof(haystack);
+	const char needle[] = "Wo";
+	size_t n = 8;
 
 	printf("Haystack: %s\n", haystack);
 	printf("Needle: %s\n", needle);
 
-	char *result = strnstr(haystack, needle, n);
+	char *result = ft_strnstr(haystack, needle, n);
 	if (result != NULL)
 	{
 		printf("Substring found: %s\n", result);
@@ -68,3 +65,4 @@ int main()
 
 	return 0;
 }
+ */

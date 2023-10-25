@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 12:17:41 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/23 15:23:58 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/25 12:28:46 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,7 @@ void	*ft_memset(void *s, int value, size_t n);
 
 /* ADDITIONAL FUNCTIONS */
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
 
 #endif
