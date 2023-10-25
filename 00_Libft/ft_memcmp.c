@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 11:17:22 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/23 15:20:02 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/25 13:52:22 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
 	}
 	return (0);
 }
-
 
 /*
 #include <stdio.h>

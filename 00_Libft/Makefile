@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/25 14:05:44 by ovosmera          #+#    #+#              #
+#    Updated: 2023/10/25 15:07:29 by ovosmera         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME	=	libft.a
 
 CC		=	gcc
@@ -34,12 +46,14 @@ SRCS	=	ft_isalnum.c\
 OBJS	=	$(SRCS:.c=.o)
 
 $(NAME):	${OBJS}
+			ar rc ${NAME} ${OBJS}
 
 all:		$(NAME)
 
-clean:		$(RM) $(OBJS)
+clean:
+			$(RM) $(OBJS)
 
-fcelan:		clean
+fclean:		clean
 			$(RM) $(NAME)
 
 re:			fclean all

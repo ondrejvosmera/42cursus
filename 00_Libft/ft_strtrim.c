@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 16:11:19 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/25 12:19:58 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/25 13:52:36 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	ft_strncpy(trimmed, (char *)s1 + start, trimmed_len);
 	trimmed[trimmed_len] = '\0';
-
 	return (trimmed);
 }
 
@@ -65,14 +64,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 int main() {
     char s[] = "  	Hello world!  	 ";
-    char set[] = " 	";
+    char set[] = " 	H!";
     char *result = ft_strtrim(s, set);
 
 	 printf("Original string: %s\n", s);
 
     if (result != NULL) {
         printf("Trimmed string: %s\n", result);
-        free(result); // Remember to free the allocated memory
+        free(result);
     } else {
         printf("Memory allocation failed.\n");
     }

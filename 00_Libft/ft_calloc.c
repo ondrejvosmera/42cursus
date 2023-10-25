@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 13:37:35 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/23 13:59:10 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/25 14:16:10 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 #include "libft.h"
 
-void	*calloc(size_t num, size_t size)
+void	*ft_calloc(size_t num, size_t size)
 {
 	void	*result;
 

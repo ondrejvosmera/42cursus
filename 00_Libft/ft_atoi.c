@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 11:49:31 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/23 13:59:02 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/25 14:55:25 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,17 @@ int	ft_atoi(char *str)
 
 	sign = 1;
 	result = 0;
-	while (*str >= 9 && *str <= 13 || *str == ' ')
+	while ((*str >= 9 && *str <= 13) || *str == ' ')
 		str++;
-	while (*str == '+' || *str == '-')
+	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
-			sign = sign * (-1);
+			sign = -1;
 		str++;
+	}
+	else if (!(*str >= '0' && *str <= '9'))
+	{
+		return (0);
 	}
 	while (*str >= '0' && *str <= '9')
 	{
