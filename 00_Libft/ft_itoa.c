@@ -1,7 +1,7 @@
 /*
 ** ft_itoa
-** Allocatesand returns a string representing the integer
-** received as an argument. Negative numbers must be handled.
+** Allocates and returns a string representing the integer
+** received as an argument. Negative numbers must be handled
 */
 
 #include "libft.h"
