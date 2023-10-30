@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ondrejvosmera <ondrejvosmera@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 12:17:41 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/25 15:59:06 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/10/30 12:46:46 by ondrejvosme      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ void	*ft_memset(void *s, int value, size_t n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
+char    **ft_split(char const *s, char c);
 
 #endif
