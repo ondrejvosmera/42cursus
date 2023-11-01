@@ -6,7 +6,7 @@
 /*   By: ondrejvosmera <ondrejvosmera@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 12:17:41 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/30 18:09:32 by ondrejvosme      ###   ########.fr       */
+/*   Updated: 2023/11/01 11:19:21 by ondrejvosme      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,15 @@ void    ft_putchar_fd(char c, int fd);
 void    ft_putstr_fd(char *s, int fd);
 void    ft_putendl_fd(char *s, int fd);
 void    ft_putnbr_fd(int n, int fd);
+
+/* BONUS */
+
+typedef struct s_list
+{
+    void            *content;
+    struct s_list   *next;
+} t_list;
+
+t_list  *ft_lstnew(void *content);
 
 #endif
