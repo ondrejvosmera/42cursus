@@ -6,7 +6,7 @@
 #    By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/25 14:05:44 by ovosmera          #+#    #+#              #
-#    Updated: 2023/11/02 11:51:17 by ovosmera         ###   ########.fr        #
+#    Updated: 2023/11/02 12:36:20 by ovosmera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,8 @@ SRCS	=	ft_isalnum.c\
 			ft_strtrim.c\
 			ft_split.c\
 			ft_itoa.c\
+			ft_strmapi.c\
+			ft_striteri.c\
 			ft_putchar_fd.c\
 			ft_putstr_fd.c\
 			ft_putendl_fd.c\
