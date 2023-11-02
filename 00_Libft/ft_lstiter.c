@@ -1,44 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 13:05:31 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/11/02 15:37:39 by ovosmera         ###   ########.fr       */
+/*   Created: 2023/11/02 15:29:15 by ovosmera          #+#    #+#             */
+/*   Updated: 2023/11/02 15:32:11 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** ft_strlen
-** Calculates the length of a string
+** ft_lstiter
+** Iterates the list ’lst’ and applies the function ’f’
+** on the content of each node.
 */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	int	count;
-
-	count = 0;
-	while (*str != '\0')
+	if (lst != NULL && f != NULL)
 	{
-		count++;
-		str++;
+		while (lst != NULL)
+		{
+			f(lst->content);
+			lst = lst->next;
+		}
 	}
-	return (count);
 }
-
-/*
-#include <stdio.h>
-
-int main()
-{
-	char str[] = "Hello, World!";
-	int length = ft_strlen(str);
-	printf("String: %s\n", str);
-	printf("Length of the string is: %d\n", length);
-	return 0;
-}
- */

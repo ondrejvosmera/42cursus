@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 13:05:31 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/11/02 15:37:39 by ovosmera         ###   ########.fr       */
+/*   Created: 2023/11/02 14:17:51 by ovosmera          #+#    #+#             */
+/*   Updated: 2023/11/02 14:28:16 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** ft_strlen
-** Calculates the length of a string
+** ft_lstadd_front
+** Adds the node ’new’ at the beginning of the list
 */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	int	count;
-
-	count = 0;
-	while (*str != '\0')
+	if (new != NULL)
 	{
-		count++;
-		str++;
+		new->next = *lst;
+		*lst = new;
 	}
-	return (count);
 }
-
-/*
-#include <stdio.h>
-
-int main()
-{
-	char str[] = "Hello, World!";
-	int length = ft_strlen(str);
-	printf("String: %s\n", str);
-	printf("Length of the string is: %d\n", length);
-	return 0;
-}
- */

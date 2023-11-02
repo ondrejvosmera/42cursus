@@ -1,44 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 13:05:31 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/11/02 15:37:39 by ovosmera         ###   ########.fr       */
+/*   Created: 2023/11/02 14:29:48 by ovosmera          #+#    #+#             */
+/*   Updated: 2023/11/02 14:42:54 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** ft_strlen
-** Calculates the length of a string
+** ft_size
+** Counts the number of nodes in a list
 */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_lstsize(t_list *lst)
 {
-	int	count;
+	size_t	i;
 
-	count = 0;
-	while (*str != '\0')
+	i = 0;
+	while (lst != NULL)
 	{
-		count++;
-		str++;
+		i++;
+		lst = lst->next;
 	}
-	return (count);
+	return (i);
 }
-
-/*
-#include <stdio.h>
-
-int main()
-{
-	char str[] = "Hello, World!";
-	int length = ft_strlen(str);
-	printf("String: %s\n", str);
-	printf("Length of the string is: %d\n", length);
-	return 0;
-}
- */

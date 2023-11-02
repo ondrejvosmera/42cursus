@@ -1,44 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 13:05:31 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/11/02 15:37:39 by ovosmera         ###   ########.fr       */
+/*   Created: 2023/11/02 14:42:16 by ovosmera          #+#    #+#             */
+/*   Updated: 2023/11/02 14:54:21 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** ft_strlen
-** Calculates the length of a string
+** ft_lstlast
+** Returns the last node of the list
 */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	count;
+	if (lst == NULL)
+		return (NULL);
 
-	count = 0;
-	while (*str != '\0')
+	while (lst->next != NULL)
 	{
-		count++;
-		str++;
+		lst = lst->next;
 	}
-	return (count);
+	return (lst);
 }
-
-/*
-#include <stdio.h>
-
-int main()
-{
-	char str[] = "Hello, World!";
-	int length = ft_strlen(str);
-	printf("String: %s\n", str);
-	printf("Length of the string is: %d\n", length);
-	return 0;
-}
- */

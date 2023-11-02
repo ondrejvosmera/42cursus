@@ -6,7 +6,7 @@
 #    By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/25 14:05:44 by ovosmera          #+#    #+#              #
-#    Updated: 2023/11/02 12:36:20 by ovosmera         ###   ########.fr        #
+#    Updated: 2023/11/02 15:39:37 by ovosmera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,9 +49,18 @@ SRCS	=	ft_isalnum.c\
 			ft_putchar_fd.c\
 			ft_putstr_fd.c\
 			ft_putendl_fd.c\
-			ft_putnbr_fd.c
+			ft_putnbr_fd.c\
+			ft_lstclear.c\
+			ft_lstmap.c
 
-BONUS_SRCS	=	ft_lstnew.c
+BONUS_SRCS	=	ft_lstnew.c\
+				ft_lstadd_front.c\
+				ft_lstsize.c\
+				ft_lstlast.c\
+				ft_lstadd_back.c\
+				ft_lstdelone.c\
+				ft_lstiter.c\
+
 
 
 OBJS	=	$(SRCS:.c=.o)

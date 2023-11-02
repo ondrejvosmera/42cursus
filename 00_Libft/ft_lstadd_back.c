@@ -1,44 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 13:05:31 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/11/02 15:37:39 by ovosmera         ###   ########.fr       */
+/*   Created: 2023/11/02 14:51:45 by ovosmera          #+#    #+#             */
+/*   Updated: 2023/11/02 15:06:47 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** ft_strlen
-** Calculates the length of a string
+** ft_lstadd_back
+** Adds the node ’new’ at the end of the list
 */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	count;
+	t_list	*tmp;
 
-	count = 0;
-	while (*str != '\0')
+	if (new != NULL)
 	{
-		count++;
-		str++;
+		if (*lst == NULL)
+		{
+			*lst = new;
+		}
+		else
+		{
+			tmp = *lst;
+			while (tmp->next != NULL)
+			{
+				tmp = tmp->next;
+			}
+			tmp->next = new;
+		}
 	}
-	return (count);
 }
-
-/*
-#include <stdio.h>
-
-int main()
-{
-	char str[] = "Hello, World!";
-	int length = ft_strlen(str);
-	printf("String: %s\n", str);
-	printf("Length of the string is: %d\n", length);
-	return 0;
-}
- */
