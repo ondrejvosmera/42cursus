@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ondrejvosmera <ondrejvosmera@student.42    +#+  +:+       +#+         #
+#    By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/25 14:05:44 by ovosmera          #+#    #+#              #
-#    Updated: 2023/11/01 11:18:04 by ondrejvosme      ###   ########.fr        #
+#    Updated: 2023/11/02 11:51:17 by ovosmera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

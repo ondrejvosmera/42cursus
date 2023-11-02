@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ondrejvosmera <ondrejvosmera@student.42    +#+  +:+       +#+        */
+/*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 15:01:03 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/30 09:30:36 by ondrejvosme      ###   ########.fr       */
+/*   Updated: 2023/11/02 11:59:29 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (dst);
 }
 
-
+/*
 #include <stdio.h>
 
 int main()
@@ -60,4 +60,5 @@ int main()
 
 	return 0;
 }
- 
+
+ */
