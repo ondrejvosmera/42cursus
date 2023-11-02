@@ -6,13 +6,13 @@
 #    By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/25 14:05:44 by ovosmera          #+#    #+#              #
-#    Updated: 2023/11/02 15:39:37 by ovosmera         ###   ########.fr        #
+#    Updated: 2023/11/02 16:18:48 by ovosmera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libft.a
 
-CC		=	gcc
+CC		=	cc
 CFLAGS	=	-Wall -Wextra -Werror
 RM      =	rm -f
 
@@ -67,6 +67,9 @@ OBJS	=	$(SRCS:.c=.o)
 BONUS_OBJS	=	$(BONUS_SRCS:.c=.o)
 
 all:		$(NAME)
+
+%.o: %.c
+			$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):	${OBJS}
 			ar rc ${NAME} ${OBJS}
