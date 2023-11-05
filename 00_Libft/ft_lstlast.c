@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:42:16 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/11/02 14:54:21 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/11/05 16:04:56 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	if (lst == NULL)
 		return (NULL);
-
 	while (lst->next != NULL)
 	{
 		lst = lst->next;

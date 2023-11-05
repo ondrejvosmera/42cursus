@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 16:11:19 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/25 13:52:36 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/11/05 17:46:53 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,44 +18,43 @@
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	ft_check(char c, char const *set)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (i < n && src[i] != '\0')
+	while (*set)
 	{
-		dest[i] = src[i];
-		i++;
+		if (c == *set)
+			return (1);
+		set++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
-	size_t	end;
-	size_t	trimmed_len;
+	size_t	len;
+	size_t	i;
 	char	*trimmed;
 
+	len = ft_strlen(s1);
 	start = 0;
-	while (ft_strchr(set, s1[start]) != NULL)
+	i = 0;
+	while (ft_check(s1[len - 1], set))
+		len--;
+	while (len > 0 && ft_check(s1[start], set))
+	{
 		start++;
-	end = ft_strlen(s1) - 1;
-	while (ft_strchr(set, s1[end]) != NULL)
-		end--;
-	trimmed_len = end - start + 1;
-	trimmed = malloc(sizeof(char) * (trimmed_len) + 1);
-	if (!trimmed)
+		len--;
+	}
+	trimmed = (char *) malloc(sizeof(char) * (len + 1));
+	if (trimmed == NULL)
 		return (NULL);
-	ft_strncpy(trimmed, (char *)s1 + start, trimmed_len);
-	trimmed[trimmed_len] = '\0';
+	while (i < len)
+	{
+		trimmed[i] = s1[start + i];
+		i++;
+	}
+	trimmed[i] = '\0';
 	return (trimmed);
 }
 

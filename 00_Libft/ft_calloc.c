@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 13:37:35 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/10/25 14:16:10 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/11/05 16:16:54 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,25 @@
 
 void	*ft_calloc(size_t num, size_t size)
 {
-	void	*result;
+	unsigned char	*result;
+	size_t			len;
+	size_t			i;
 
-	result = malloc(num * size);
-	if (result != NULL)
+	len = num * size;
+	i = 0;
+	if (!num || !size)
+		return (malloc(0));
+	if (len / size != num)
+		return (NULL);
+	result = (unsigned char *) malloc(len);
+	if (result == NULL)
+		return (NULL);
+	while (i < len)
 	{
-		ft_bzero(result, num * size);
+		result[i] = 0;
+		i++;
 	}
-	return (result);
+	return ((void *)result);
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 12:17:41 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/11/02 16:20:50 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/11/05 14:17:24 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 
 // String
-int		ft_atoi(char *str);
+int		ft_atoi(const char *str);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strdup(const char *src);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);

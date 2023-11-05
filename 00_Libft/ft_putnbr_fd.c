@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:56:06 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/11/02 11:56:22 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/11/05 17:54:47 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@
 void	ft_putnbr_fd(int n, int fd)
 {
 	char	*str;
-	int		i;
 
 	str = ft_itoa(n);
-	i = 0;
-	while (str[i] != '\0')
+	if (str)
 	{
-		write(fd, &str[i], 1);
-		i++;
+		write(fd, str, ft_strlen(str));
+		free(str);
 	}
 }
 
