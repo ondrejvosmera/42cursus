@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 15:08:05 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/11/02 15:59:47 by ovosmera         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:30:51 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
 	if (lst != NULL || del != NULL)
 	{
-		del(lst);
+		del(lst->content);
+		free(lst);
 	}
 }
