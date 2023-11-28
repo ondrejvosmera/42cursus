@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+
 void	ft_putstr(char *str, int *ptr_char_count)
 {
 	while (*str != '\0')

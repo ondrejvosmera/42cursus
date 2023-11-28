@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 14:57:09 by ovosmera          #+#    #+#             */
-/*   Updated: 2023/11/15 15:12:33 by ovosmera         ###   ########.fr       */
+/*   Created: 2023/11/15 14:50:55 by ovosmera          #+#    #+#             */
+/*   Updated: 2023/11/15 16:57:39 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
-void	ft_putchar(char c, int *ptr_char_count)
-{
-	write(1, &c, 1);
-	*ptr_char_count += 1;
-}
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdarg.h>
+
+int ft_printf(const char *format, ...);
+void	ft_format_type(char format, va_list args, int *ptr_char_count);
+void	ft_putchar(char c, int *ptr_char_count);
+void	ft_putstr(char *str, int *ptr_char_count);
+void    ft_putnbr(int n, int *ptr_char_count);
+
+#endif

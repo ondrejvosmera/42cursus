@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_printf(const char *format, ...)
 {
@@ -18,16 +18,37 @@ int	ft_printf(const char *format, ...)
 	int		char_count;
 	int		*ptr_char_count;
 
+    va_start(args, format);
 	char_count = 0;
 	ptr_char_count = &char_count;
-	va_start(args, format);
 
 	while (*format != '\0')
 	{
-		if (format == '%')
+		if (*format != '%')
 		{
-			format++;
-		}
+			ft_putchar(*format, ptr_char_count);
+        }
+        else
+        {
+            ft_format_type(*(format + 1), args, ptr_char_count);
+            format++;
+        }
+        format++;
 	}
-	return (va_end(args), char_count);
+	va_end(args);
+    return (char_count);
 }
+
+
+ /* int main() {
+    // Test with characters
+    ft_printf("Characters: %c\n", 'A');
+
+    // Test with strings
+    ft_printf("String: %s\n", "Hello, World!");
+
+    // Test with number
+    ft_printf("Number: %d\n", 42);
+
+    return 0;
+}  */
