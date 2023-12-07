@@ -22,5 +22,6 @@ void	ft_format_type(char format, va_list args, int *ptr_char_count);
 void	ft_putchar(char c, int *ptr_char_count);
 void	ft_putstr(char *str, int *ptr_char_count);
 void    ft_putnbr(int n, int *ptr_char_count);
+void    ft_putptr(void *ptr, int *ptr_char_count);
 
 #endif

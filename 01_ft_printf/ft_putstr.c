@@ -14,6 +14,11 @@
 
 void	ft_putstr(char *str, int *ptr_char_count)
 {
+	if (str == NULL)
+	{
+		ft_putstr("NULL", ptr_char_count);
+		return;
+	}
 	while (*str != '\0')
 	{
 		write(1, str, 1);

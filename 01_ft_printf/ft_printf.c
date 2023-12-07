@@ -40,7 +40,7 @@ int	ft_printf(const char *format, ...)
 }
 
 
- /* int main() {
+/* int main() {
     // Test with characters
     ft_printf("Characters: %c\n", 'A');
 
@@ -50,5 +50,9 @@ int	ft_printf(const char *format, ...)
     // Test with number
     ft_printf("Number: %d\n", 42);
 
+    // Test with a pointer
+    int num = 45;
+    ft_printf("Pointer: %p\n", (void*)&num);
+
     return 0;
-}  */
+}   */
