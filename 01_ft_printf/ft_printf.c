@@ -39,8 +39,8 @@ int	ft_printf(const char *format, ...)
     return (char_count);
 }
 
-
-/* int main() {
+/* 
+ int main() {
     // Test with characters
     ft_printf("Characters: %c\n", 'A');
 
@@ -54,5 +54,14 @@ int	ft_printf(const char *format, ...)
     int num = 45;
     ft_printf("Pointer: %p\n", (void*)&num);
 
+     // Test with an unsigned number
+    ft_printf("Unsigned Number: %u\n", 12345);
+
+    // Test with lowercase hexadecimal
+    ft_printf("Lowercase Hex: %x\n", 255);
+
+    // Test with uppercase hexadecimal
+    ft_printf("Uppercase Hex: %X\n", 255);
+
     return 0;
-}   */
+}    */
