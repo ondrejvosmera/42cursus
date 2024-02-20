@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 10:58:14 by ovosmera          #+#    #+#             */
-/*   Updated: 2024/02/20 11:20:34 by ovosmera         ###   ########.fr       */
+/*   Updated: 2024/02/20 12:38:49 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,15 @@ void	ft_putptr(void *ptr, int *ptr_char_count)
 {
 	unsigned long	address;
 
-	address = (unsigned long) ptr;
-	ft_putstr("0x", ptr_char_count);
-	ft_print_hex(address, ptr_char_count);
+	if (ptr == NULL)
+	{
+		ft_putstr("(nil)", ptr_char_count);
+		return ;
+	}
+	else
+	{
+		address = (unsigned long) ptr;
+		ft_putstr("0x", ptr_char_count);
+		ft_print_hex(address, ptr_char_count);
+	}
 }
