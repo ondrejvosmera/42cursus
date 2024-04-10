@@ -19,15 +19,14 @@ static char	*read_file(int fd)
 {
 	int			bytes_read;
 	char		*buffer;
-	static int	count = 1;
+	//static int	count = 1;
 
-	printf("ft_calloc#[%d]---", count++);
-	buffer = calloc(3 + 1, sizeof(char));
+	buffer = calloc(BUFFER_SIZE + 1, sizeof(char));
 
 	if (buffer == NULL)
 		return (NULL);
 
-	bytes_read = read(fd, buffer, 3);
+	bytes_read = read(fd, buffer, BUFFER_SIZE);
 	if (bytes_read <= 0)
 	{
 		free (buffer);
@@ -46,6 +45,7 @@ char	*get_next_line(int fd)
 }
 
 
+/* 
 int	main(void)
 {
 	int		fd;
@@ -73,3 +73,4 @@ int	main(void)
 	close(fd);
 	return (0);
 }
+ */
