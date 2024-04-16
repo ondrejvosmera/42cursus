@@ -6,71 +6,75 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 11:57:31 by ovosmera          #+#    #+#             */
-/*   Updated: 2024/04/09 14:59:21 by ovosmera         ###   ########.fr       */
+/*   Updated: 2024/04/16 16:28:24 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 #include <fcntl.h>
 
+char	*read_line(char *buffer)
+{
 
-static char	*read_file(int fd)
+}
+
+char	*remove_line(char *buffer)
+{
+
+}
+
+char	*read_file(char* buffer, int fd)
 {
 	int			bytes_read;
 	char		*buffer;
-	//static int	count = 1;
 
 	buffer = calloc(BUFFER_SIZE + 1, sizeof(char));
-
 	if (buffer == NULL)
 		return (NULL);
-
 	bytes_read = read(fd, buffer, BUFFER_SIZE);
 	if (bytes_read <= 0)
 	{
 		free (buffer);
 		return (NULL);
 	}
-
 	return (buffer);
 }
 
 char	*get_next_line(int fd)
 {
-	char	*buffer;
+	static char	*buffer;
+	char		*line;
 
-	buffer = read_file(fd);
-	return (buffer);
+
 }
 
 
-/* 
-int	main(void)
+int main(void)
 {
-	int		fd;
-	char	*next_line;
-	int		count;
+    int fd;
+    char *line;
 
-	count = 0;
-	fd = open("example.txt", O_RDONLY);
-	if (fd == -1)
-	{
-		printf("Error opening file.");
-		return (1);
-	}
-	while (1)
-	{
-		next_line = get_next_line(fd);
-		if (next_line == NULL)
-			break ;
-		count++;
-		printf("[%d] %s\n", count, next_line);
-		free(next_line);
-		next_line = NULL;
-	}
+    // Open the file
+    fd = open("example.txt", O_RDONLY);
+    if (fd == -1)
+    {
+        perror("Error opening file");
+        return (1);
+    }
 
-	close(fd);
-	return (0);
+    // Read and print each line using get_next_line
+    while ((line = get_next_line(fd)) != NULL)
+    {
+        printf("%s", line);
+        free(line); // Free the memory allocated for each line
+    }
+
+    // Close the file
+    if (close(fd) == -1)
+    {
+        perror("Error closing file");
+        return (1);
+    }
+
+    return (0);
 }
- */
