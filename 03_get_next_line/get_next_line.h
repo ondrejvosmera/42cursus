@@ -22,6 +22,11 @@
 # endif
 
 char	*get_next_line(int fd);
-void	*ft_calloc(size_t num, size_t size);
+size_t  ft_strlen(const char *str);
+void    *ft_calloc(size_t num, size_t size);
+char    *ft_strchr(const char *str, int c);
+char    *ft_strdup(const char *str);
+char	*ft_strjoin(char const *s1, char const *s2);
+
 
 #endif
