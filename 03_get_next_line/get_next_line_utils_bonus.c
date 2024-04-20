@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/20 13:09:31 by ovosmera          #+#    #+#             */
+/*   Updated: 2024/04/20 13:48:26 by ovosmera         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *str)
@@ -80,7 +92,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	total_len = ft_strlen(s1) + ft_strlen(s2);
 	i = 0;
-
 	new_str = (char *)malloc(sizeof(char) * (total_len + 1));
 	if (new_str == NULL)
 		return (NULL);
@@ -97,6 +108,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		s2++;
 	}
 	new_str[i] = '\0';
-
 	return (new_str);
 }
