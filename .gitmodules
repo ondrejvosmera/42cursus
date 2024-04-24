@@ -1,0 +1,6 @@
+[submodule "04_so_long/04_so_long/lib/MLX42"]
+	path = 04_so_long/04_so_long/lib/MLX42
+	url = https://github.com/codam-coding-college/MLX42.git
+[submodule "04_so_long/lib/MLX42"]
+	path = 04_so_long/lib/MLX42
+	url = https://github.com/codam-coding-college/MLX42.git
