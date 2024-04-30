@@ -6,34 +6,83 @@
 #    By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/21 14:14:08 by ovosmera          #+#    #+#              #
-#    Updated: 2024/04/24 17:27:20 by ovosmera         ###   ########.fr        #
+#    Updated: 2024/04/30 16:36:31 by ovosmera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	so_long
+# Name of the program.
+NAME = so_long
 
-CC		=	cc
-CFLAGS	=	-Wall -Wextra -Werror
-RM      =	rm -f
+# Compiler
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
-SRCS 	=
+# Paths
+LIBFT_PATH = ./lib/libft/
+LIBFT_NAME = libft.a
+LIBFT = $(LIBFT_PATH)$(LIBFT_NAME)
 
-OBJS	=	$(SRCS:.c=.o)
+LIBMLX_PATH = ./lib/MLX42
+LIBMLX_NAME = /build/libmlx42.a
+LIBMLX = $(LIBMLX_PATH)$(LIBMLX_NAME) -ldl -lglfw -pthread -lm
 
-all:		$(NAME)
+# Includes
+INC_LIBMLX = -I ./include -I $(LIBMLX_PATH)/include
+INC_LIBFT = -I $(LIBFT_PATH)
 
-%.o: %.c
-			$(CC) $(CFLAGS) -c $< -o $@
+# Sources and objects
+SRC_PATH = ./src/
+SRC = errors.c so_long.c
+SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
-$(NAME):	${OBJS}
-			ar rc ${NAME} ${OBJS}
+OBJ_PATH = ./obj/
+OBJ = $(SRC:.c=.o)
+OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
+
+# Rules
+all: libft libmlx $(NAME)
+
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	@$(CC) $(CFLAGS) $(INC_LIBMLX) $(INC_LIBFT) -c $< -o $@
+
+$(OBJS): | $(OBJ_PATH)
+
+$(OBJ_PATH):
+	@mkdir -p $(OBJ_PATH)
+
+libft:
+	@echo "[ Making libft... ]"
+	@make -C $(LIBFT_PATH)
+	@echo "[ Libft ready ]"
+
+libmlx:
+	@echo "[ Making MLX42... ]"
+	@cmake -S $(LIBMLX_PATH) -B $(LIBMLX_PATH)/build
+	@make -C $(LIBMLX_PATH)/build
+	@echo "[ MLX42 ready ]"
+
+$(NAME): $(OBJS)
+	@echo "[ Compiling $(NAME)... ]"
+	@$(CC) $(OBJS) -o $(NAME) $(LIBMLX) $(LIBFT)
+	@echo "[ $(NAME) ready ]"
+
+bonus: all
 
 clean:
-			$(RM) $(OBJS)
+	@rm -rf $(OBJ_PATH)
+	@make clean -C $(LIBFT_PATH)
+	@rm -rf $(LIBMLX_PATH)/build
+	@echo "[ Obj files deleted ]"
 
-fclean:		clean
-			$(RM) $(NAME)
+fclean: clean
+	@rm -f $(NAME)
+	@echo "[ Program deleted ]"
 
-re:			fclean all
+re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus re clean fclean libmlx libft
+
+
+
+
+

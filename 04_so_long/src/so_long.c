@@ -1,42 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 11:57:51 by ovosmera          #+#    #+#             */
-/*   Updated: 2024/04/30 16:16:30 by ovosmera         ###   ########.fr       */
+/*   Created: 2024/04/24 14:19:42 by ovosmera          #+#    #+#             */
+/*   Updated: 2024/04/30 16:46:57 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** ft_putstr_fd
-** Outputs the string ’s’ to the given file descriptor
-*/
+#include "so_long.h"
 
-#include "libft.h"
-
-void	ft_putstr_fd(const char *s, int fd)
+int main(void)
 {
-	int	i;
+    mlx_t *mlx;
 
-	i = 0;
-	while (s[i] != '\0')
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
+    mlx = mlx_init(800, 600, "So Long", false);
+    if (!mlx)
+    {
+        error();
+    }
+
+    // Add a delay to simulate the program running for a short period
+    usleep(3000000); // Delay for 3 seconds
+
+    mlx_terminate(mlx); // Terminate the MLX42 instance
+
+    return 0;
 }
 
-/*
-int main()
-{
-	char *str = "Hello, World!";
-	int fd = 1;
-
-	ft_putstr_fd(str, fd);
-
-	return 0;
-}
-*/
