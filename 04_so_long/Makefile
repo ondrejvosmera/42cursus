@@ -6,7 +6,7 @@
 #    By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/21 14:14:08 by ovosmera          #+#    #+#              #
-#    Updated: 2024/04/30 16:36:31 by ovosmera         ###   ########.fr        #
+#    Updated: 2024/08/06 15:17:57 by ovosmera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ INC_LIBFT = -I $(LIBFT_PATH)
 
 # Sources and objects
 SRC_PATH = ./src/
-SRC = errors.c so_long.c
+SRC = errors.c so_long.c read_map.c render_map.c textures.c
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
 OBJ_PATH = ./obj/
@@ -81,8 +81,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all bonus re clean fclean libmlx libft
-
-
-
-
-
