@@ -6,18 +6,19 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:19:42 by ovosmera          #+#    #+#             */
-/*   Updated: 2024/08/07 17:29:49 by ovosmera         ###   ########.fr       */
+/*   Updated: 2024/08/07 17:35:02 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void setup_window(t_game *game) {
-    game->mlx = mlx_init(800, 600, "So Long", false);
+void setup_window(t_game *game, int width, int height) {
+    game->mlx = mlx_init(width, height, "So Long", false);
     if (!game->mlx) {
         error();
     }
 }
+
 
 void key_press(mlx_key_data_t key_data, void *param) {
     t_game *game = param;
@@ -76,29 +77,48 @@ void setup_event_hooks(t_game *game) {
 
 int main(int argc, char **argv) {
     t_game game;
+    int map_width, map_height;
 
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <map_file>\n", argv[0]);
         return EXIT_FAILURE;
     }
 
-    setup_window(&game);
-    setup_textures(&game);
-
+    // Read the map to determine its size
     game.map = read_map(argv[1], &game);
     if (!game.map) {
         fprintf(stderr, "Failed to load map.\n");
         return EXIT_FAILURE;
     }
 
+    // Calculate map dimensions
+    map_height = 0;
+    map_width = strlen(game.map[0]); // Assuming all rows have the same length
+
+    while (game.map[map_height]) {
+        map_height++;
+    }
+
+    // Calculate window size based on map size
+    int window_width = map_width * BLOCK_WIDTH;
+    int window_height = map_height * BLOCK_HEIGHT;
+
+    // Setup window with calculated dimensions
+    setup_window(&game, window_width, window_height);
+    setup_textures(&game);
+
+    // Initialize game variables
     game.collected = 0;
     game.moves = 0;
-    game.prev_player_x = game.player_x; // Initialize previous player position
-    game.prev_player_y = game.player_y; // Initialize previous player position
+    game.prev_player_x = game.player_x;
+    game.prev_player_y = game.player_y;
 
-    render_map_initial(&game);  // Render the entire map initially
+    // Render the entire map initially
+    render_map_initial(&game);
     setup_event_hooks(&game);
 
-    mlx_loop(game.mlx); // Start the MLX event loop
+    // Start the MLX event loop
+    mlx_loop(game.mlx);
+
     return 0;
 }

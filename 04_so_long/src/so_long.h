@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:23:43 by ovosmera          #+#    #+#             */
-/*   Updated: 2024/08/07 17:25:41 by ovosmera         ###   ########.fr       */
+/*   Updated: 2024/08/07 17:34:48 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,19 @@
 
 typedef struct s_images
 {
-    mlx_texture_t *player_texture;
-    mlx_image_t *player_image;
-    mlx_texture_t *collectible_texture;
-    mlx_image_t *collectible_image;
-    mlx_texture_t *enemy_texture;
-    mlx_image_t *enemy_image;
-    mlx_texture_t *wall_texture;
-    mlx_image_t *wall_image;
-    mlx_texture_t *floor_texture;
-    mlx_image_t *floor_image;
-    mlx_texture_t *exit_texture;
-    mlx_image_t *exit_image;
-} t_images;
+	mlx_texture_t	*player_texture;
+	mlx_image_t		*player_image;
+	mlx_texture_t	*collectible_texture;
+	mlx_image_t		*collectible_image;
+	mlx_texture_t	*enemy_texture;
+	mlx_image_t		*enemy_image;
+	mlx_texture_t	*wall_texture;
+	mlx_image_t		*wall_image;
+	mlx_texture_t	*floor_texture;
+	mlx_image_t		*floor_image;
+	mlx_texture_t	*exit_texture;
+	mlx_image_t		*exit_image;
+}	t_images;
 
 typedef struct s_game {
     mlx_t *mlx;
@@ -46,18 +46,19 @@ typedef struct s_game {
     char **map;
     int player_x; // Player's x position
     int player_y; // Player's y position
-    int prev_player_x; // Previous player's x position
-    int prev_player_y; // Previous player's y position
     int collected; // Number of collected items
     int total_collectibles; // Total number of collectibles in the game
     int moves; // Number of moves made by the player
+    int prev_player_x; // Player's previous x position
+    int prev_player_y; // Player's previous y position
 } t_game;
 
 // Function prototypes
-void setup_window(t_game *game);
+void setup_window(t_game *game, int width, int height); // Updated prototype
 void setup_textures(t_game *game);
-void render_map_initial(t_game *game); // Render the entire map initially
-void render_map_update(t_game *game);  // Update only the changed parts of the map
+void render_map(t_game *game);
+void render_map_initial(t_game *game); // Add this if not already present
+void render_map_update(t_game *game);  // Add this if not already present
 void setup_event_hooks(t_game *game);
 void key_press(mlx_key_data_t key_data, void *param);
 void error(void);

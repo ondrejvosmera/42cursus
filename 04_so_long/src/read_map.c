@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 14:59:49 by ovosmera          #+#    #+#             */
-/*   Updated: 2024/08/07 17:28:39 by ovosmera         ###   ########.fr       */
+/*   Updated: 2024/08/07 17:33:53 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,3 +53,4 @@ char **read_map(const char *filename, t_game *game) {
     }
     return map;
 }
+
