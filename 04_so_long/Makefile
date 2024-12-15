@@ -6,11 +6,23 @@
 #    By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/21 14:14:08 by ovosmera          #+#    #+#              #
-#    Updated: 2024/08/06 15:17:57 by ovosmera         ###   ########.fr        #
+#    Updated: 2024/12/15 18:13:20 by ovosmera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Name of the program.
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/04/21 14:14:08 by ovosmera          #+#    #+#              #
+#    Updated: 2024/12/15 18:30:00 by ovosmera         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# Name of the program
 NAME = so_long
 
 # Compiler
@@ -26,29 +38,57 @@ LIBMLX_PATH = ./lib/MLX42
 LIBMLX_NAME = /build/libmlx42.a
 LIBMLX = $(LIBMLX_PATH)$(LIBMLX_NAME) -ldl -lglfw -pthread -lm
 
+FT_PRINTF_PATH = ./lib/ft_printf
+GNL_PATH = ./lib/gnl
+
 # Includes
 INC_LIBMLX = -I ./include -I $(LIBMLX_PATH)/include
 INC_LIBFT = -I $(LIBFT_PATH)
+INC_FT_PRINTF = -I $(FT_PRINTF_PATH)
+INC_GNL = -I $(GNL_PATH)
 
-# Sources and objects
+# Source and object paths
 SRC_PATH = ./src/
-SRC = errors.c so_long.c read_map.c render_map.c textures.c
-SRCS = $(addprefix $(SRC_PATH), $(SRC))
-
 OBJ_PATH = ./obj/
-OBJ = $(SRC:.c=.o)
-OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
 
-# Rules
-all: libft libmlx $(NAME)
+# Sources from the code we previously gave:
+# so_long.c, error.c, map.c, map_check.c, map_path.c, map_utils.c, game.c, input.c, render.c, clean.c
+# plus ft_printf and gnl sources.
+SRCS = $(SRC_PATH)so_long.c \
+       $(SRC_PATH)error.c \
+       $(SRC_PATH)map.c \
+       $(SRC_PATH)map_check.c \
+       $(SRC_PATH)map_path.c \
+       $(SRC_PATH)map_utils.c \
+       $(SRC_PATH)game.c \
+       $(SRC_PATH)input.c \
+       $(SRC_PATH)render.c \
+       $(SRC_PATH)clean.c \
+       $(FT_PRINTF_PATH)/ft_printf.c \
+       $(FT_PRINTF_PATH)/ft_printf_utils.c \
+       $(GNL_PATH)/get_next_line.c \
+       $(GNL_PATH)/get_next_line_utils.c
 
+OBJ = $(SRCS:.c=.o)
+# Convert paths in object files so they are placed in obj/ directory
+OBJS = $(patsubst $(SRC_PATH)%, $(OBJ_PATH)%, $(filter $(SRC_PATH)%.o, $(OBJ)))
+OBJS += $(patsubst $(FT_PRINTF_PATH)/%, $(OBJ_PATH)ft_printf_%, $(filter $(FT_PRINTF_PATH)%.o, $(OBJ)))
+OBJS += $(patsubst $(GNL_PATH)/%, $(OBJ_PATH)gnl_%, $(filter $(GNL_PATH)%.o, $(OBJ)))
+
+# Pattern rules
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	@$(CC) $(CFLAGS) $(INC_LIBMLX) $(INC_LIBFT) -c $< -o $@
-
-$(OBJS): | $(OBJ_PATH)
-
-$(OBJ_PATH):
 	@mkdir -p $(OBJ_PATH)
+	$(CC) $(CFLAGS) $(INC_LIBMLX) $(INC_LIBFT) $(INC_FT_PRINTF) $(INC_GNL) -c $< -o $@
+
+$(OBJ_PATH)ft_printf_%.o: $(FT_PRINTF_PATH)/%.c
+	@mkdir -p $(OBJ_PATH)
+	$(CC) $(CFLAGS) $(INC_LIBMLX) $(INC_LIBFT) $(INC_FT_PRINTF) $(INC_GNL) -c $< -o $@
+
+$(OBJ_PATH)gnl_%.o: $(GNL_PATH)/%.c
+	@mkdir -p $(OBJ_PATH)
+	$(CC) $(CFLAGS) $(INC_LIBMLX) $(INC_LIBFT) $(INC_FT_PRINTF) $(INC_GNL) -c $< -o $@
+
+all: libft libmlx $(NAME)
 
 libft:
 	@echo "[ Making libft... ]"
@@ -63,16 +103,20 @@ libmlx:
 
 $(NAME): $(OBJS)
 	@echo "[ Compiling $(NAME)... ]"
-	@$(CC) $(OBJS) -o $(NAME) $(LIBMLX) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBMLX) $(LIBFT)
 	@echo "[ $(NAME) ready ]"
 
 bonus: all
 
 clean:
 	@rm -rf $(OBJ_PATH)
+	@rm -f $(SRC_PATH)*.o
+	@rm -f $(FT_PRINTF_PATH)/*.o
+	@rm -f $(GNL_PATH)/*.o
 	@make clean -C $(LIBFT_PATH)
 	@rm -rf $(LIBMLX_PATH)/build
 	@echo "[ Obj files deleted ]"
+
 
 fclean: clean
 	@rm -f $(NAME)

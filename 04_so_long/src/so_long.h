@@ -6,62 +6,63 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:23:43 by ovosmera          #+#    #+#             */
-/*   Updated: 2024/08/07 17:34:48 by ovosmera         ###   ########.fr       */
+/*   Updated: 2024/12/15 18:20:34 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include "../lib/MLX42/include/MLX42/MLX42.h"
+# include <ft_printf.h>
+# include "get_next_line.h"
+# include "libft.h"
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 # include <stdio.h>
 # include <string.h>
-# include "../lib/MLX42/include/MLX42/MLX42.h"
-# include "../lib/libft/libft.h"
 
-# define BLOCK_WIDTH 64
-# define BLOCK_HEIGHT 64
-
-typedef struct s_images
+typedef struct s_map
 {
-	mlx_texture_t	*player_texture;
-	mlx_image_t		*player_image;
-	mlx_texture_t	*collectible_texture;
-	mlx_image_t		*collectible_image;
-	mlx_texture_t	*enemy_texture;
-	mlx_image_t		*enemy_image;
-	mlx_texture_t	*wall_texture;
-	mlx_image_t		*wall_image;
-	mlx_texture_t	*floor_texture;
-	mlx_image_t		*floor_image;
-	mlx_texture_t	*exit_texture;
-	mlx_image_t		*exit_image;
-}	t_images;
+	char	**grid;
+	int		width;
+	int		height;
+	int		collect_count;
+	int		player_count;
+	int		exit_count;
+	int		player_x;
+	int		player_y;
+}	t_map;
 
-typedef struct s_game {
-    mlx_t *mlx;
-    void *win;
-    t_images images;
-    char **map;
-    int player_x; // Player's x position
-    int player_y; // Player's y position
-    int collected; // Number of collected items
-    int total_collectibles; // Total number of collectibles in the game
-    int moves; // Number of moves made by the player
-    int prev_player_x; // Player's previous x position
-    int prev_player_y; // Player's previous y position
-} t_game;
+typedef struct s_game
+{
+	mlx_t		*mlx;
+	mlx_image_t	*wall_img;
+	mlx_image_t	*floor_img;
+	mlx_image_t	*player_img;
+	mlx_image_t	*collect_img;
+	mlx_image_t	*exit_img;
+	mlx_image_t	*enemy_img;
+	t_map		map;
+	int			moves;
+}	t_game;
 
-// Function prototypes
-void setup_window(t_game *game, int width, int height); // Updated prototype
-void setup_textures(t_game *game);
-void render_map(t_game *game);
-void render_map_initial(t_game *game); // Add this if not already present
-void render_map_update(t_game *game);  // Add this if not already present
-void setup_event_hooks(t_game *game);
-void key_press(mlx_key_data_t key_data, void *param);
-void error(void);
-char **read_map(const char *filename, t_game *game);
+/* Prototypes */
+void	error_msg(char *msg);
+void	free_map_grid(char **grid, int height);
+void	parse_map(char *filename, t_map *map);
+void	check_map_validity(t_map *map);
+void	check_path(t_map *map);
+int		is_rectangle(t_map *map);
+int		is_closed(t_map *map);
+int		valid_chars_counts(t_map *map);
+void	init_game(t_game *game);
+void	init_images(t_game *game);
+void	start_game(t_game *game);
+void	key_hook(mlx_key_data_t keydata, void *param);
+void	destroy_hook(void *param);
+void	render_map(t_game *game);
+void	cleanup(t_game *game);
 
 #endif
