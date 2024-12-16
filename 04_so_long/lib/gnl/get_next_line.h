@@ -6,7 +6,7 @@
 /*   By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:29:06 by ovosmera          #+#    #+#             */
-/*   Updated: 2024/12/15 17:42:06 by ovosmera         ###   ########.fr       */
+/*   Updated: 2024/12/16 10:51:24 by ovosmera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,3 @@ char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
-

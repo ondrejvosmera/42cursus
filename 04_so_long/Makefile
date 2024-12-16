@@ -6,30 +6,15 @@
 #    By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/21 14:14:08 by ovosmera          #+#    #+#              #
-#    Updated: 2024/12/15 18:13:20 by ovosmera         ###   ########.fr        #
+#    Updated: 2024/12/16 10:49:51 by ovosmera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ovosmera <ovosmera@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/04/21 14:14:08 by ovosmera          #+#    #+#              #
-#    Updated: 2024/12/15 18:30:00 by ovosmera         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-# Name of the program
 NAME = so_long
 
-# Compiler
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-# Paths
 LIBFT_PATH = ./lib/libft/
 LIBFT_NAME = libft.a
 LIBFT = $(LIBFT_PATH)$(LIBFT_NAME)
@@ -41,19 +26,14 @@ LIBMLX = $(LIBMLX_PATH)$(LIBMLX_NAME) -ldl -lglfw -pthread -lm
 FT_PRINTF_PATH = ./lib/ft_printf
 GNL_PATH = ./lib/gnl
 
-# Includes
 INC_LIBMLX = -I ./include -I $(LIBMLX_PATH)/include
 INC_LIBFT = -I $(LIBFT_PATH)
 INC_FT_PRINTF = -I $(FT_PRINTF_PATH)
 INC_GNL = -I $(GNL_PATH)
 
-# Source and object paths
 SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 
-# Sources from the code we previously gave:
-# so_long.c, error.c, map.c, map_check.c, map_path.c, map_utils.c, game.c, input.c, render.c, clean.c
-# plus ft_printf and gnl sources.
 SRCS = $(SRC_PATH)so_long.c \
        $(SRC_PATH)error.c \
        $(SRC_PATH)map.c \
@@ -70,12 +50,11 @@ SRCS = $(SRC_PATH)so_long.c \
        $(GNL_PATH)/get_next_line_utils.c
 
 OBJ = $(SRCS:.c=.o)
-# Convert paths in object files so they are placed in obj/ directory
+
 OBJS = $(patsubst $(SRC_PATH)%, $(OBJ_PATH)%, $(filter $(SRC_PATH)%.o, $(OBJ)))
 OBJS += $(patsubst $(FT_PRINTF_PATH)/%, $(OBJ_PATH)ft_printf_%, $(filter $(FT_PRINTF_PATH)%.o, $(OBJ)))
 OBJS += $(patsubst $(GNL_PATH)/%, $(OBJ_PATH)gnl_%, $(filter $(GNL_PATH)%.o, $(OBJ)))
 
-# Pattern rules
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir -p $(OBJ_PATH)
 	$(CC) $(CFLAGS) $(INC_LIBMLX) $(INC_LIBFT) $(INC_FT_PRINTF) $(INC_GNL) -c $< -o $@
